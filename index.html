@@ -4,22 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ALPALOVA</title>
-<meta name="description" content="Heavy cloth, made in Peru. Throws and fabrics in baby alpaca and Pima cotton, for tailors, brands and interiors.">
-<meta name="theme-color" content="#F7F4EE" media="(prefers-color-scheme: light)">
+<meta name="description" content="Made in Peru, from the Andes to Lima. Throws for the home and fabrics by the metre, in baby alpaca and Pima cotton.">
+<meta name="theme-color" content="#F1EBDD" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14120F" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://alpalova.com/">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png?v=3">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ALPALOVA">
-<meta property="og:title" content="ALPALOVA · Heavy cloth, made in Peru">
-<meta property="og:description" content="Throws and fabrics in baby alpaca and Pima cotton, for tailors, brands and interiors.">
+<meta property="og:title" content="ALPALOVA · Made in Peru, from the Andes to Lima">
+<meta property="og:description" content="Throws for the home and fabrics by the metre, in baby alpaca and Pima cotton.">
 <meta property="og:url" content="https://alpalova.com/">
-<meta property="og:image" content="https://alpalova.com/og.jpg">
+<meta property="og:image" content="https://alpalova.com/og-andes.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="A cocoa brown chunky-knit throw with knotted tassels, draped over a white bed">
+<meta property="og:image:alt" content="Three ALPALOVA throws, a bobble knit, a houndstooth and a herringbone, at sunset in the Andes">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/cormorant-garamond-latin-300-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -36,10 +37,11 @@
 @font-face{font-family:'Tenor Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/tenor-sans-latin-400-normal.woff2) format('woff2')}
 /* ALPALOVA v4. Quiet, spacious, Italian-interiors tone. Tokens first; light and dark. Nothing flips to white. */
 :root{
-  --page:#F7F4EE; --card:#EFEAE0; --sunken:#E9E3D6;
-  --ink:#1C1A17; --body:#3C3834; --muted:#6F675D; --rule:#DED7CA; --rule-strong:#B3AB9E;
-  --accent:#5A3D2A; --on-accent:#F7F4EE; --btn:#1C1A17; --on-btn:#F7F4EE;
+  --page:#F1EBDD; --card:#E9E1D0; --sunken:#E3DBC7;
+  --ink:#1C1A17; --body:#3C3834; --muted:#696258; --rule:#D9CFBC; --rule-strong:#AFA593;
+  --accent:#5A3D2A; --on-accent:#F1EBDD; --btn:#1C1A17; --on-btn:#F1EBDD;
   --stage:#BAAFA1; --stage-ink:#1C1A17;
+  --paper:#FBF8F0; --paper-ink:#1C1A17; --paper-muted:#6A6258; --paper-edge:#E2DACA;
   --logo-filter:none;
   --f-display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
   --f-sans:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -50,11 +52,13 @@
   --page:#14120F; --card:#1C1916; --sunken:#100E0C;
   --ink:#EEE8DC; --body:#CFC7BA; --muted:#9A9184; --rule:#2B2722; --rule-strong:#4A443C;
   --accent:#C9AC8C; --on-accent:#14120F; --btn:#D8C2A6; --on-btn:#14120F;
+  --paper:#E7E0D0; --paper-ink:#1C1A17; --paper-muted:#5E574E; --paper-edge:#CFC6B4;
   --logo-filter:invert(1) brightness(.95); color-scheme:dark}}
 :root[data-theme="dark"]{
   --page:#14120F; --card:#1C1916; --sunken:#100E0C;
   --ink:#EEE8DC; --body:#CFC7BA; --muted:#9A9184; --rule:#2B2722; --rule-strong:#4A443C;
   --accent:#C9AC8C; --on-accent:#14120F; --btn:#D8C2A6; --on-btn:#14120F;
+  --paper:#E7E0D0; --paper-ink:#1C1A17; --paper-muted:#5E574E; --paper-edge:#CFC6B4;
   --logo-filter:invert(1) brightness(.95); color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -98,12 +102,19 @@ em{font-style:italic}
 .brand{display:inline-flex;align-items:center;gap:.85rem;text-decoration:none;justify-self:center}
 .brand img{height:34px;width:auto}
 .brand .word{font-size:.86rem}
-.nav{display:flex;align-items:center;gap:clamp(1.25rem,2.6vw,2.6rem)}
+.nav{--nav-gap:clamp(1.25rem,2.6vw,2.6rem);display:flex;align-items:center;gap:var(--nav-gap)}
 .nav.r{justify-self:end}
 .nl{font:500 .68rem/1 var(--f-sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding-block:.6rem;background:none;border:0;border-bottom:1px solid transparent;cursor:pointer;transition:color .2s,border-color .2s}
 .nl:hover{color:var(--ink)}
 .nl[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
 .menu-btn,.menu{display:none}
+/* sun in the light theme, moon in the dark one; a press switches and the choice is remembered */
+.theme-btn{display:inline-grid;place-items:center;width:2.25rem;height:2.25rem;margin-right:-.55rem;margin-left:calc((var(--nav-gap) + .5625rem) / -2);padding:0;background:none;border:0;border-radius:50%;color:var(--muted);cursor:pointer;transition:color .2s}
+.theme-btn:hover{color:var(--ink)}
+.theme-btn svg{display:block}
+.theme-btn .i-moon{display:none}
+:root[data-theme="dark"] .theme-btn .i-sun{display:none}
+:root[data-theme="dark"] .theme-btn .i-moon{display:block}
 
 section.page[hidden]{display:none!important}
 .page{animation:pagein .55s var(--ease) both}
@@ -124,6 +135,8 @@ section.page[hidden]{display:none!important}
   .two.rev{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
   .two.rev > .copy-col{grid-column:1;grid-row:1}
   .two.rev > .fig{grid-column:2;grid-row:1}
+  .two.rev.wide{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .two.flip{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}   /* picture first, in the wider column */
 }
 
 /* ---------- HOME: hero, the bed ---------- */
@@ -135,8 +148,9 @@ section.page[hidden]{display:none!important}
   -webkit-mask-image:var(--m-l),var(--m-t);-webkit-mask-composite:source-in;mask-image:var(--m-l),var(--m-t);mask-composite:intersect}
 .hero-fig picture{position:absolute;inset:0;display:block}
 .hero-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 72%}
-.hero-copy{grid-area:1/1;position:relative;z-index:1;justify-self:start;align-self:center;display:grid;gap:1.4rem;justify-items:start;min-width:0;width:calc(var(--lx) + min(35rem,36vw));padding:clamp(3rem,7vw,6rem) clamp(1rem,2vw,2rem) clamp(3rem,7vw,6rem) var(--lx)}
-.hero h1{font-size:clamp(2.6rem,4.9vw,5rem);line-height:1;letter-spacing:-.012em}
+.hero-copy{grid-area:1/1;position:relative;z-index:1;justify-self:start;align-self:center;display:grid;gap:1.4rem;justify-items:start;min-width:0;width:calc(var(--lx) + min(38rem,39vw));padding:clamp(3rem,7vw,6rem) clamp(1rem,2vw,2rem) clamp(3rem,7vw,6rem) var(--lx)}
+.hero h1{font-size:clamp(2.2rem,4.2vw,4.1rem);line-height:1;letter-spacing:-.012em}
+.hero h1 em{white-space:nowrap}   /* two lines: the place, then the route */
 .hero-copy p{max-width:34ch;font-size:1.02rem}
 /* a slow fade in: the photo settles, then the lines of text come up one after the other */
 @keyframes heroPhoto{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:scale(1)}}
@@ -237,11 +251,19 @@ section.page[hidden]{display:none!important}
 .fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%}
 .fig.paper{background:var(--sunken)}
 .fig.paper img{object-position:50% 50%}
+/* a landscape picture keeps its own shape and takes the wider column */
+.fig.land{aspect-ratio:3/2}
+.fig.land img{object-position:50% 50%}
 .copy-col{display:grid;gap:1.4rem;justify-items:start}
 .defs{width:100%;border-top:1px solid var(--rule);margin-top:.6rem}
 .defs li{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--rule)}
 .defs b{font:400 1.22rem/1.2 var(--f-display);color:var(--ink)}
 .defs span{font-size:.92rem}
+/* inside the yarn band the two fibres sit under the text, in the band's own ink */
+.yarn .defs{margin-top:.2rem;border-top-color:var(--yrule)}
+.yarn .defs li{grid-template-columns:8rem minmax(0,1fr);padding:.85rem 0;border-bottom-color:var(--yrule)}
+.yarn .defs b{color:var(--stage-ink)}
+.yarn .defs span{color:var(--stage-ink);opacity:.82}
 .cta{display:flex;gap:1.75rem;align-items:center;flex-wrap:wrap;margin-top:.4rem}
 
 /* trade */
@@ -254,6 +276,29 @@ section.page[hidden]{display:none!important}
 .jump a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 .shelf{padding-top:clamp(2.5rem,5vw,4rem);padding-bottom:clamp(3.5rem,7vw,6rem);scroll-margin-top:84px}
 .shelf + .shelf{border-top:1px solid var(--rule)}
+
+/* ---------- fabric sample cards: small swatches on paper cards, grouped by weave ---------- */
+.swatches{display:grid;gap:clamp(2.25rem,3.6vw,3.25rem)}
+.swhead{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem 1.5rem;flex-wrap:wrap;padding-bottom:.85rem;margin-bottom:1.3rem;border-bottom:1px solid var(--rule)}
+.swhead h3{font-size:1.3rem;font-weight:400;line-height:1.2}
+.swhead span{font:500 .66rem/1.4 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.chips{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(.75rem,1.5vw,1.25rem)}
+.chip{display:grid;align-content:start;min-width:0;padding:.55rem .55rem 0;background:var(--paper);color:var(--paper-ink);text-decoration:none;box-shadow:0 0 0 1px var(--paper-edge),0 12px 22px -18px rgba(28,26,23,.5);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+a.chip:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--paper-edge),0 18px 26px -18px rgba(28,26,23,.55)}
+.chip-sw{display:block;aspect-ratio:1/1;overflow:hidden;background:var(--paper-edge)}
+.chip-sw img{display:block;width:100%;height:100%;object-fit:cover}
+.chip-lab{display:grid;gap:.22rem;padding:.75rem .1rem .8rem;min-width:0}
+.chip-brand{font:400 .5rem/1 var(--f-word);letter-spacing:.3em;text-transform:uppercase;color:var(--paper-muted)}
+.chip-name{font:400 1.1rem/1.15 var(--f-display);color:var(--paper-ink);overflow-wrap:anywhere}
+.chip-meta{display:flex;flex-wrap:wrap;margin-left:-1.3em;-webkit-clip-path:inset(0 0 0 1.3em);clip-path:inset(0 0 0 1.3em);font:500 .6rem/1.35 var(--f-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--paper-muted)}
+/* weave and weight sit on one line when there is room and stack when there is not; the dot between them belongs to the second piece and is clipped away at the start of a line */
+.chip-meta span{position:relative;padding-left:1.3em}
+.chip-meta span:last-child{white-space:nowrap}
+/* small cards always stack weave over weight, so a row of them never mixes one-line and two-line labels; the large card keeps them on one line while there is room */
+a.chip .chip-meta{flex-direction:column}
+.chip-meta span::before{content:'\00B7';position:absolute;left:-.06em;top:0;width:1.3em;text-align:center;letter-spacing:0}
+.card.ask.wide{aspect-ratio:auto;display:flex;justify-content:space-between;align-items:center;gap:1.25rem 2.5rem;flex-wrap:wrap}
+.card.ask.wide > div{min-width:min(100%,16rem);flex:1}
 .card.ask{border:1px solid var(--rule);aspect-ratio:1/1;align-content:space-between;justify-items:start;padding:clamp(1.25rem,2.4vw,2rem)}
 .card.ask.tall{aspect-ratio:4/5}
 .card.ask .eyebrow{display:block;margin-bottom:.9rem}
@@ -279,6 +324,14 @@ section.page[hidden]{display:none!important}
 .gal[data-kind="fabric"] .gal-main{aspect-ratio:1/1;background:var(--sunken)}
 .gal-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;animation:fadein .6s var(--ease) both}
 .gal[data-kind="fabric"] .gal-main img{object-position:50% 50%}
+/* the frame is square when the card fits and grows with it when it does not (a long name on a small phone) */
+.gal[data-kind="fabric"] .gal-main{display:grid;place-items:center;overflow:visible;padding:1.25rem 0}
+.gal[data-kind="fabric"] .gal-main .chip{width:min(64%,290px);padding:.9rem .9rem 0;animation:fadein .6s var(--ease) both}
+.gal[data-kind="fabric"] .gal-main .chip img{position:static;width:100%;height:100%;animation:none}
+.chip.big .chip-lab{gap:.35rem;padding:1.05rem .1rem 1.15rem}
+.chip.big .chip-brand{font-size:.58rem}
+.chip.big .chip-name{font-size:clamp(1.3rem,6.4vw,1.7rem)}
+.chip.big .chip-meta{font-size:.64rem}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
 .gal-thumbs{display:flex;gap:.6rem;flex-wrap:wrap}
 .gal-thumbs button{width:68px;aspect-ratio:4/5;padding:0;border:1px solid transparent;background:var(--stage);cursor:pointer;overflow:hidden;opacity:.62;transition:opacity .2s,border-color .2s}
@@ -373,6 +426,7 @@ footer{border-top:1px solid var(--rule);padding-block:clamp(3rem,6vw,4.5rem) 2re
   .nav.r{gap:1.1rem}
   .nav.r .hide-m{display:none}
   .menu-btn{display:inline-block}
+  .theme-btn{margin-right:0;margin-left:0}
   .menu{position:fixed;inset:0;z-index:40;background:var(--page);padding:calc(64px + 1.25rem) var(--gut) 2rem;overflow:auto}
   body.menu-open .menu{display:block}
   .menu a{display:block;font:300 2.1rem/1.2 var(--f-display);color:var(--ink);text-decoration:none;padding:.9rem 0;border-bottom:1px solid var(--rule)}
@@ -382,7 +436,8 @@ footer{border-top:1px solid var(--rule);padding-block:clamp(3rem,6vw,4.5rem) 2re
   .hero-fig{--ft:10%;width:100%;aspect-ratio:6/5;max-height:70vh;max-height:70svh;-webkit-mask-image:var(--m-t);-webkit-mask-composite:source-over;mask-image:var(--m-t);mask-composite:add}
   .hero-fig img{object-position:50% 100%}
   .hero-copy{width:auto;padding:1.25rem var(--gut) 3.25rem}
-  .hero h1{font-size:clamp(2.5rem,11.5vw,3.9rem)}
+  .hero h1{font-size:clamp(1.9rem,9.9vw,3.9rem)}
+  .hero h1 em{white-space:normal}
   .stage-grid{grid-template-columns:1fr;grid-template-rows:auto auto auto}
   .stage-copy{grid-column:1;justify-items:start;padding-block:2.25rem 0}
   .stage-imgs img{transform:none}
@@ -418,8 +473,17 @@ footer{border-top:1px solid var(--rule);padding-block:clamp(3rem,6vw,4.5rem) 2re
   .info{gap:1.25rem}
   .info .blurb{font-size:1.2rem}
 }
+/* sample cards keep to one hand-sized format: six across on desktop, four on tablets, three on phones */
+@media (max-width:900px){
+  .chips{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
 @media (max-width:700px){
   .yarn-photo{aspect-ratio:3/2}
+  .chips{gap:.6rem}
+  .chip{padding:.4rem .4rem 0}
+  .chip-lab{padding:.6rem .05rem .65rem}
+  .chip-name{font-size:1rem}
+  .chip-brand{font-size:.46rem}
   .gal{max-width:520px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2.25rem .85rem}
   .card.ask{grid-column:1/-1;aspect-ratio:auto;gap:1.5rem}
@@ -431,12 +495,17 @@ footer{border-top:1px solid var(--rule);padding-block:clamp(3rem,6vw,4.5rem) 2re
   .related .grid .card:nth-child(3){display:none}
   .card-row{flex-direction:column;align-items:flex-start;gap:.15rem}
   .defs li{grid-template-columns:1fr;gap:.2rem}
+  .yarn .defs li{grid-template-columns:1fr}
   .specs div{grid-template-columns:7.5rem minmax(0,1fr)}
   .details dl,.f2{grid-template-columns:1fr}
   .reqbar{width:calc(100% - 32px);justify-content:space-between;padding-left:1.1rem}
   .reqbar span{min-width:0}
 }
+@media (max-width:560px){
+  .chips{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 @media (max-width:420px){
+  .chip-meta{font-size:.56rem;letter-spacing:.08em}
   /* six colour dots (the herringbone fabric) must fit a half-width card on small phones: 24px is the smallest comfortable target, and the row wraps below that */
   .dot{width:1.5rem;height:1.5rem}
   .dots{gap:0}
@@ -460,6 +529,7 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
 </script>
 </head>
 <body>
+<script>(function(){var t=null;try{t=localStorage.getItem('alpalova-theme')}catch(e){}if(t!=='light'&&t!=='dark')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t)})()</script>
 <header class="top" id="top">
   <div class="wrap">
     <nav class="nav l" aria-label="Primary">
@@ -473,6 +543,10 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
     <nav class="nav r" aria-label="Secondary">
       <a class="nl hide-m" href="#story" data-nav="story">Our story</a>
       <a class="nl hide-m" href="#contact" data-nav="contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark theme">
+        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z"/></svg>
+      </button>
       <button class="nl menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
     </nav>
   </div>
@@ -498,8 +572,8 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
     </figure>
     <div class="hero-copy">
       <span class="eyebrow">Baby alpaca · Pima cotton</span>
-      <h1>Heavy cloth, <em>made in Peru.</em></h1>
-      <p>Throws and fabrics in baby alpaca and Pima cotton, for tailors, brands and interiors.</p>
+      <h1>Made in Peru,<br><em>from the Andes to Lima.</em></h1>
+      <p>Throws for the home and fabrics by the metre.</p>
     </div>
   </div>
 
@@ -549,21 +623,6 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
     </div>
   </div>
 
-  <div class="sec tight">
-    <div class="wrap two rev">
-      <figure class="fig"><img src="img/detail-tassels.jpg" alt="Close-up of an ivory chunky-knit throw, with knotted tassels along its edge" width="950" height="1150" loading="lazy"></figure>
-      <div class="copy-col">
-        <span class="eyebrow">The fibre</span>
-        <h2>Two natural fibres, <em>one yarn.</em></h2>
-        <p>Peru is the home of the alpaca. We make the cloth close to where the fibre comes from.</p>
-        <ul class="defs">
-          <li><b>Baby alpaca</b><span>60% of the blend. One of the finest grades of alpaca fibre, in natural shades from ivory to deep brown.</span></li>
-          <li><b>Pima cotton</b><span>40% of the blend. One of the finest long-staple cottons grown anywhere, knitted into the tube that holds the alpaca.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
   <section class="yarn" id="sec-yarn" aria-labelledby="yarnH">
     <div class="wrap">
       <div class="yarn-top">
@@ -571,8 +630,11 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
         <div class="yarn-copy">
           <span class="eyebrow">The yarn</span>
           <h2 id="yarnH">Baby alpaca, <em>blown</em> into Pima cotton.</h2>
-          <p>Our signature is a blown yarn. Baby alpaca is air-blown into a fine knitted tube of Pima cotton, so the yarn is 100% natural fibre, with no nylon at its core. The air held between the fibres gives the cloth volume and warmth, and keeps it light in the hand.</p>
-          <div class="tags"><span>100% natural fibre</span><span>No nylon</span></div>
+          <p>Our signature is a blown yarn. Baby alpaca is air-blown into a fine knitted tube of Pima cotton, so the yarn is 100% natural fibre. The air held between the fibres gives the cloth volume and warmth, and keeps it light in the hand.</p>
+          <ul class="defs">
+            <li><b>Baby alpaca</b><span>60%. One of the finest grades of alpaca, in its natural shades.</span></li>
+            <li><b>Pima cotton</b><span>40%. A fine long-staple cotton, knitted into the tube.</span></li>
+          </ul>
         </div>
       </div>
       <ol class="yarn-steps" role="list" aria-label="The yarn in three steps">
@@ -589,14 +651,27 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
         <li class="ystep">
           <figure><img class="yimg fr" src="img/yarn-3-lofty.jpg" alt="The finished yarn: the tube filled with soft baby alpaca fibre, with a magnified circle on the fibres" width="1200" height="800" loading="lazy" decoding="async"><span class="ynum" aria-hidden="true">03</span></figure>
           <h3>Lofty yarn</h3>
-          <p>100% natural fibre. No nylon.</p>
+          <p>100% natural fibre.</p>
         </li>
       </ol>
     </div>
   </section>
 
+  <div class="sec">
+    <div class="wrap two rev wide">
+      <figure class="fig land"><img src="img/weaving-hands-900.jpg" srcset="img/weaving-hands-900.jpg 900w, img/weaving-hands-1600.jpg 1600w" sizes="(min-width:901px) 50vw, 100vw" alt="A weaver's hands passing a needle through white yarn on a hand loom" width="1600" height="1067" loading="lazy" decoding="async"></figure>
+      <div class="copy-col">
+        <span class="eyebrow">The weaving</span>
+        <h2>Woven by hand, <em>high in the Andes.</em></h2>
+        <p>Our throws are woven in Puno, on wooden hand looms, in the ancestral way.</p>
+        <p>The chunky knits are the exception. They are knitted rather than woven, and made elsewhere in Peru.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="sec tone">
-    <div class="wrap two">
+    <div class="wrap two flip">
+      <figure class="fig paper"><img src="img/swatch-cards.jpg" alt="Swatch cards of ALPALOVA cloths, each with its composition, width and weight" width="897" height="1196" loading="lazy"></figure>
       <div class="copy-col">
         <span class="eyebrow">The cloth</span>
         <h2>Every cloth, <em>on a swatch card.</em></h2>
@@ -604,7 +679,6 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
         <p>We send the cards on request, so you can feel the cloth before you order.</p>
         <div class="cta"><a class="btn" href="#contact">Request swatches</a><a class="arrow" href="#store">Explore the collection</a></div>
       </div>
-      <figure class="fig paper"><img src="img/swatch-cards.jpg" alt="Swatch cards of ALPALOVA cloths, each with its composition, width and weight" width="897" height="1196" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -630,7 +704,7 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
         <div><span class="eyebrow" id="cntFabrics"></span><h2>Fabrics by the metre</h2></div>
         <p class="note">60% baby alpaca · 40% Pima cotton · 142 cm wide.</p>
       </div>
-      <div class="grid" id="gridFabrics"></div>
+      <div class="swatches" id="gridFabrics"></div>
     </section>
   </div>
 </section>
@@ -653,7 +727,7 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
         <dl>
           <div><dt class="eyebrow">Email</dt><dd><span id="mail">hello@alpalova.com</span><button class="copy" type="button" data-copy="mail">Copy</button></dd></div>
           <div><dt class="eyebrow">Instagram</dt><dd><a href="https://www.instagram.com/alpalova/" target="_blank" rel="noopener">@alpalova</a></dd></div>
-          <div><dt class="eyebrow">Production</dt><dd>Lima, Peru</dd></div>
+          <div><dt class="eyebrow">Production</dt><dd>Puno and Lima, Peru</dd></div>
           <div><dt class="eyebrow">Office</dt><dd>Biella, Italy</dd></div>
         </dl>
       </div>
@@ -692,7 +766,7 @@ window.ALPALOVA_CONFIG={formEndpoint:'',accessKey:'',mail:'hello@alpalova.com'};
     </div>
     <div><span class="eyebrow">Explore</span><ul><li><a href="#home">Home</a></li><li><a href="#story">Our story</a></li><li><a href="#store">Store</a></li><li><a href="#contact">Contact</a></li></ul></div>
     <div><span class="eyebrow">Collection</span><ul><li><a href="#store" data-scroll="sec-throws">Throws</a></li><li><a href="#store" data-scroll="sec-fabrics">Fabrics by the metre</a></li></ul></div>
-    <div><span class="eyebrow">Find us</span><ul><li>Production, Lima</li><li>Office, Biella</li><li><a href="https://www.instagram.com/alpalova/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    <div><span class="eyebrow">Find us</span><ul><li>Production, Puno and Lima</li><li>Office, Biella</li><li><a href="https://www.instagram.com/alpalova/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
   </div>
   <div class="wrap"><div class="legal"><span>© ALPALOVA</span><span>Made in Peru</span></div></div>
 </footer>
@@ -733,14 +807,14 @@ const FAMILIES=[
  {id:'plain-throw',kind:'throw',name:'Plain',structure:'Plain',finish:'Self fringe',
   blurb:'A plain camel throw with a self fringe.',
   variants:[{id:'camel',name:'Camel',dot:'#B89A7C',photos:['throw-camel','g/plain-throw-camel-1','g/plain-throw-camel-2','g/plain-throw-camel-3']}]},
- {id:'plain-fabric',kind:'fabric',name:'Plain weave',weave:'Plain, 1-1',gm:620,
+ {id:'plain-fabric',kind:'fabric',name:'Plain weave',weave:'Plain weave, 1/1',gm:620,
   blurb:'A heavy, close plain weave in baby alpaca and Pima cotton.',
   variants:[
    {id:'taupe',name:'Taupe',dot:'#8A8077',photos:['sw-taupe']},
    {id:'chocolate',name:'Chocolate',dot:'#51433A',photos:['sw-brown']},
    {id:'charcoal',name:'Charcoal',dot:'#2B2C2F',photos:['sw-charcoal']},
    {id:'pearl-grey',name:'Pearl grey',dot:'#A2A29D',photos:['sw-grey']}]},
- {id:'herringbone-fabric',kind:'fabric',name:'Herringbone',weave:'Herringbone',gm:690,
+ {id:'herringbone-fabric',kind:'fabric',name:'Herringbone',weave:'Herringbone, 2/2 twill',gm:690,
   blurb:'A heavy herringbone in baby alpaca and Pima cotton, for coats and jackets.',
   variants:[
    {id:'taupe',name:'Taupe',dot:'#6A5C52',photos:['sw-hb-taupe']},
@@ -793,10 +867,23 @@ function setCardVariant(card,vid){
   $$('a.card-media,a.card-title',card).forEach(a=>a.setAttribute('href','#p-'+f.id+'-'+v.id));
   lastVariant[f.id]=vid;
 }
+/* ---- fabric sample cards: a small swatch on a paper card with the brand, the colour name and the weight ----
+   opt.weave adds the weave to the last line (where the cards are not grouped), opt.big is the one on the product page */
+function chipHTML(f,v,opt){
+  opt=opt||{};
+  const meta=(opt.weave?'<span>'+esc(f.name)+'</span>':'')+'<span>'+gmOf(f,v)+'</span>',full=esc(f.name)+' fabric, '+esc(v.name);
+  const inner='<span class="chip-sw"><img src="img/'+v.photos[0]+'.jpg" alt="'+(opt.big?full:'')+'" width="480" height="480"'+(opt.big?'':' loading="lazy"')+'></span>'+
+    '<span class="chip-lab"><span class="chip-brand" aria-hidden="true">Alpalova</span><span class="chip-name">'+esc(v.name).replace(/&amp; /g,'&amp;&nbsp;')+'</span><span class="chip-meta">'+meta+'</span></span>';
+  return opt.big?'<div class="chip big">'+inner+'</div>':
+    '<a class="chip" href="#p-'+f.id+'-'+v.id+'" data-f="'+f.id+'" data-v="'+v.id+'" aria-label="'+full+', '+gmOf(f,v)+'">'+inner+'</a>';
+}
 function plural(n,w){return n+' '+w+(n===1?'':'s')}
 const nCol=list=>list.reduce((a,f)=>a+f.variants.length,0);
 $('#gridThrows').innerHTML=THROWS.map(f=>cardHTML(f)).join('')+'<article class="card ask tall"><div><span class="eyebrow">On request</span><p>Another colour or size?</p><small>Tell us what you need and we will tell you what is possible.</small></div><a class="arrow" href="#contact">Ask us</a></article>';
-$('#gridFabrics').innerHTML=FABRICS.map(f=>cardHTML(f)).join('')+'<article class="card ask"><div><span class="eyebrow">Fabric development</span><p>Another colour, weave or weight?</p><small>Developing fabrics is part of our daily work. Tell us what you need.</small></div><a class="arrow" href="#contact">Ask us</a></article>';
+$('#gridFabrics').innerHTML=FABRICS.map(f=>
+  '<div class="swgroup"><div class="swhead"><h3>'+esc(f.weave)+'</h3><span>'+f.gm+' g/m · '+plural(f.variants.length,'colour')+'</span></div>'+
+  '<div class="chips">'+f.variants.map(v=>chipHTML(f,v)).join('')+'</div></div>').join('')+
+  '<article class="card ask wide"><div><span class="eyebrow">Fabric development</span><p>Another colour, weave or weight?</p><small>Developing fabrics is part of our daily work. Tell us what you need.</small></div><a class="arrow" href="#contact">Ask us</a></article>';
 $('#cntThrows').textContent=plural(THROWS.length,'design')+' · '+plural(nCol(THROWS),'colour');
 $('#cntFabrics').textContent=plural(FABRICS.length,'weave')+' · '+plural(nCol(FABRICS),'colour');
 
@@ -830,11 +917,14 @@ function renderProduct(f,v){
    '<div class="buy"><div class="row"><button type="button" class="btn" data-add="'+key+'" aria-pressed="'+on+'">Add to request</button><a class="arrow" href="#contact">Review request</a><button type="button" class="tiny" data-remove="'+key+'" data-rmfor="'+key+'"'+(on?'':' hidden')+'>Remove</button></div>'+
    '<p class="note">No checkout. Add the pieces you like and send one request: we reply with availability, swatches and samples.</p></div></div></div>'+
    '<section class="related"><div class="head"><div><span class="eyebrow">Also in the store</span><h2>More to see</h2></div><a class="arrow" href="#store">View the store</a></div>'+
-   '<div class="grid">'+relatedOf(f).map(x=>cardHTML(x)).join('')+'</div></section>';
+   (f.kind==='fabric'?
+     '<div class="chips">'+[f].concat(FABRICS.filter(x=>x!==f)).reduce((l,x)=>l.concat(x.variants.filter(y=>y!==v).map(y=>chipHTML(x,y,{weave:true}))),[]).join('')+'</div>':
+     '<div class="grid">'+relatedOf(f).map(x=>cardHTML(x)).join('')+'</div>')+'</section>';
   setGal(0);
 }
 function setGal(i){
   if(!curP)return;const ph=curP.v.photos,k=Math.max(0,Math.min(ph.length-1,i)),thr=curP.f.kind==='throw';
+  if(!thr){$('#galMain').innerHTML=chipHTML(curP.f,curP.v,{big:true,weave:true});return}
   $('#galMain').innerHTML='<img src="img/'+ph[k]+'.jpg" alt="'+esc(curP.f.name)+', '+esc(curP.v.name)+(ph.length>1?', photo '+(k+1)+' of '+ph.length:'')+'" width="'+(thr?1000:480)+'" height="'+(thr?1250:480)+'">';
   $$('.gal-thumbs button').forEach((b,j)=>{if(j===k)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current')});
 }
@@ -901,6 +991,16 @@ if(window.matchMedia){const mq=matchMedia('(min-width:901px)'),f=e=>{if(e.matche
 /* the three yarn steps swipe sideways on phones and tablets: while they do, let the keyboard reach them too */
 (function(){const ys=$('.yarn-steps');if(!ys)return;const chk=()=>{if(ys.scrollWidth>ys.clientWidth+2)ys.setAttribute('tabindex','0');else ys.removeAttribute('tabindex')};
   if(window.ResizeObserver)new ResizeObserver(chk).observe(ys);else addEventListener('resize',chk);chk()})();
+/* theme: follows the device until the visitor chooses, then the choice is kept */
+(function(){
+  const root=document.documentElement,btn=$('#themeBtn');let chosen=null;
+  try{const v=localStorage.getItem('alpalova-theme');if(v==='light'||v==='dark')chosen=v}catch(e){}
+  const mq=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;
+  const apply=t=>{root.setAttribute('data-theme',t);btn.setAttribute('aria-label','Switch to '+(t==='dark'?'light':'dark')+' theme')};
+  apply(chosen||(mq&&mq.matches?'dark':'light'));
+  btn.addEventListener('click',()=>{chosen=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(chosen);try{localStorage.setItem('alpalova-theme',chosen)}catch(e){}});
+  if(mq){const f=e=>{if(!chosen)apply(e.matches?'dark':'light')};if(mq.addEventListener)mq.addEventListener('change',f);else if(mq.addListener)mq.addListener(f)}
+})();
 const topBar=$('#top');
 const onScroll=()=>topBar.classList.toggle('scrolled',window.scrollY>8);
 addEventListener('scroll',onScroll,{passive:true});onScroll();
